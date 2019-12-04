@@ -6,21 +6,21 @@ import axios from 'axios'
 
 import {Paper} from '@material-ui/core'
 
-class FollowerList extends Component {
+class FollowingList extends Component {
 
     constructor(){
         super();
         this.state = {
-            followers: []
+            following: []
         }
     }
 
     componentDidMount(){
-        axios.get('https://api.github.com/users/zimashima/followers')
+        axios.get('https://api.github.com/users/zimashima/following')
         .then (res => {
             console.log(res.data)
             this.setState({
-                followers: res.data
+                following: res.data
             })
         })
     }
@@ -29,7 +29,7 @@ class FollowerList extends Component {
         return (
           <Paper className="displayList">
             {
-                this.state.followers.map( flw => (
+                this.state.following.map( flw => (
                     <FollowCard userData={flw}/>
                 ))
             }
@@ -38,4 +38,4 @@ class FollowerList extends Component {
     }
 };
 
-export default FollowerList;
+export default FollowingList;
