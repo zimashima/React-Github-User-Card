@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 
-import {Button, Card, CardActions, CardActionArea, CardMedia, CardContent, Typography} from '@material-ui/core'
+import {Button, Card, CardActions, CardMedia, CardContent, Typography, Link} from '@material-ui/core'
 
 import {GitHub, LocationCity, Face} from '@material-ui/icons'
 
@@ -65,19 +65,19 @@ class UserCard extends Component {
                 <CardMedia component="img" src={this.state.user.avatar_url}/>
                 </div>
                 <div className="content">
-                <CardActionArea>
                 <CardContent>
                     <Typography variant="h3" color="textSecondary">{this.state.user.name}</Typography>
                     <Typography variant="body1" color="textPrimary">{this.state.user.bio}</Typography>
+                    <div className="info">
                     <Face />{this.state.user.login}<br />
-                    <GitHub /> {this.state.user.html_url}<br />
+                    <GitHub /><Link color="inherit" href={this.state.user.html_url}> {this.state.user.html_url}</Link><br />
                     <LocationCity />{this.state.user.location}<br />
+                    </div>
                 </CardContent>
-                </CardActionArea>
                 <CardActions>
                     <Button color="primary" onClick={this.toggleOpenFollower}>Followers </Button>
                     <Dialog open={this.state.toggleFollower} onClose={this.toggleCloseFollower}>
-                        <DialogTitle>{this.state.user.name}'s Followers</DialogTitle>
+                        <DialogTitle color="secondary">{this.state.user.name}'s Followers</DialogTitle>
                         <DialogContent>
                             <FollowerList />
                         </DialogContent>
