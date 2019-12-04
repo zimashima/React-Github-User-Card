@@ -3,6 +3,7 @@
   margin: 0 auto;
   display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
 }
 
 body {
@@ -13,7 +14,7 @@ body {
 
 
 .imageContainer{
-  width: 400px;
+  width: 250px;
 }
 
 .followCard{
@@ -44,5 +45,16 @@ body {
 
 .calendar{
   width: 80%;
-  background-color: lightgray;
+  padding: 20px;
+  background-color: #006064;
+}
+
+.main{
+  display: flex;
+  flex-direction: column;
+}
+
+.card{
+  padding: 30px;
+  margin: 10px;
 }

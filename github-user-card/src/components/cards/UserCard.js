@@ -13,7 +13,6 @@ import FollowingList from './FollowingList'
 import GitHubCalendar from 'github-calendar'
 
 
-
 class UserCard extends Component {
     constructor(){
         super();
@@ -59,13 +58,14 @@ class UserCard extends Component {
     render(){
         GitHubCalendar(".calendar", "zimashima", { responsive: true })
         return (
-          <div>
-            <Card className="userCard">
+          <div className="main">
+            <Card className="card">
+                <div className="userCard">
                 <div className="imageContainer">
                 <CardMedia component="img" src={this.state.user.avatar_url}/>
                 </div>
                 <div className="content">
-                    <CardActionArea>
+                <CardActionArea>
                 <CardContent>
                     <Typography variant="h3" color="textSecondary">{this.state.user.name}</Typography>
                     <Typography variant="body1" color="textPrimary">{this.state.user.bio}</Typography>
@@ -93,9 +93,11 @@ class UserCard extends Component {
 
                 </CardActions>
                 </div>
+                </div>
+                <div className="calendar">
+                </div>
             </Card>
-            <div className="calendar">
-            </div>
+            
           </div>
         )
     }
